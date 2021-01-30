@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// se puede usar ({ saludo }) y ya no tendria que usar props, solo {saludo2}
+const PrimeraApp = (props) => {
+    const saludo = 'Hola mundo con react';
+    return (
+        <>
+            <h1>{ saludo }</h1>
+            <p>Mi primera aplicación </p>
+            <p>{props.saludo2}</p>
+            <p>{props.subtitulo}</p>
+        </>
+    );
+
+};
+
+PrimeraApp.propTypes  = {
+    // El isRequired solo si lo necesitas obligatoriamente
+    saludo2: PropTypes.string.isRequired
 }
 
-export default App;
+PrimeraApp.defaultProps = {
+    subtitulo: 'Soy un subtitulo'
+}
+
+
+export default PrimeraApp;
